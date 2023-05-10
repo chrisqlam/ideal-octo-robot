@@ -3,8 +3,8 @@ import Container from "./Container";
 
 const Form = (props) => {
   const [input, setInput] = useState("Hello");
-  const [font, setFont] = useState("jost");
-  const [size, setSize] = useState("4");
+  const [font, setFont] = useState("font-jost");
+  const [size, setSize] = useState("150mm");
 
   const typeHandler = (event) => {
     setInput(event.target.value);
@@ -24,6 +24,7 @@ const Form = (props) => {
       input: input,
       font: font,
       size: size,
+      pdfFont: font.replace("font-", ""),
     };
     props.handleHouseNumberCallback(previewData);
   };
@@ -49,13 +50,12 @@ const Form = (props) => {
             <select
               className="rounded-md py-1 px-4 mb-5"
               onChange={fontHandler}
-              value={font}
             >
-              <option value="jost">Strathcona</option>
-              <option value="texgyreheros">Rundle</option>
-              <option value="broadsheet">Westmount</option>
-              <option value="vonique">Highlevel</option>
-              <option value="advent">Garneau</option>
+              <option value="font-jost">Strathcona</option>
+              <option value="font-texgyreheros">Rundle</option>
+              <option value="font-broadsheet">Westmount</option>
+              <option value="font-vonique">Highlevel</option>
+              <option value="font-advent">Garneau</option>
             </select>
           </div>
           <div>
@@ -67,9 +67,11 @@ const Form = (props) => {
               onChange={sizeHandler}
               value={size}
             >
-              <option value="4">4"</option>
-              <option value="8">8"</option>
-              <option value="12">12"</option>
+              <option value="150mm">150mm</option>
+              <option value="200mm">200mm</option>
+              <option value="250mm">250mm</option>
+              <option value="300mm">300mm</option>
+              <option value="400mm">400mm</option>
             </select>
           </div>
         </div>
